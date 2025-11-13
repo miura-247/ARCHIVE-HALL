@@ -1,0 +1,25 @@
+{
+  "id": "mika",
+  "name": "美香 (Mika)",
+  "series": "USITAS",
+  "era": "PRESENT",
+  "category": "魔女",
+  "tags": [
+    "女",
+    "薬草"
+  ],
+  "bio": "薬草と調合を好む陽気な魔女。村人たちの相談役でもある。",
+  "height": "165cm",
+  "gender": "女",
+  "likes": [
+    "調合",
+    "散歩"
+  ],
+  "dislikes": [
+    "退屈"
+  ],
+  "svg": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"32\" cy=\"32\" r=\"24\" fill=\"#ffcc66\"/><path d=\"M20 44 C28 52 36 52 44 44\" stroke=\"#fff\" stroke-width=\"2\" fill=\"none\"/></svg>",
+  "images": [
+    "imgs/chara/mika/face1.png"
+  ]
+}
