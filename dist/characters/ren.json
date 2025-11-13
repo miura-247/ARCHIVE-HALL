@@ -1,0 +1,22 @@
+{
+  "id": "ren",
+  "name": "蓮 (Ren)",
+  "series": "USITAS",
+  "era": "PRESENT",
+  "category": "人間",
+  "tags": [
+    "男",
+    "剣"
+  ],
+  "bio": "静かな口数で知られる青年剣士。過去の影を背負いながら、正義のために剣を振るう。",
+  "height": "182cm",
+  "gender": "男",
+  "likes": [
+    "剣術"
+  ],
+  "dislikes": [
+    "不正"
+  ],
+  "svg": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"8\" y=\"8\" width=\"48\" height=\"48\" rx=\"8\" fill=\"#7c5cff\"/><path d=\"M32 16 L40 40 L24 40 Z\" fill=\"#fff\" opacity=\"0.95\"/></svg>",
+  "images": []
+}

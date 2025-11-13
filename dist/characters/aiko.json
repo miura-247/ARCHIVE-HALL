@@ -1,0 +1,27 @@
+{
+  "id": "aiko",
+  "name": "愛子 (Aiko)",
+  "series": "USITAS",
+  "era": "PAST",
+  "category": "魔女",
+  "tags": [
+    "女",
+    "魔法",
+    "図書館"
+  ],
+  "bio": "古い図書館に住む若き魔法使い。知識と本をこよなく愛し、時折冒険にも出かける。",
+  "height": "158cm",
+  "gender": "女",
+  "likes": [
+    "読書",
+    "紅茶"
+  ],
+  "dislikes": [
+    "騒音"
+  ],
+  "svg": "<svg viewBox=\"0 0 64 64\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"8\" y=\"8\" width=\"48\" height=\"48\" rx=\"8\" fill=\"#ff8fb1\"/><circle cx=\"32\" cy=\"24\" r=\"8\" fill=\"#fff\" opacity=\"0.9\"/></svg>",
+  "images": [
+    "imgs/chara/aiko/face1.png",
+    "imgs/chara/aiko/face2.png"
+  ]
+}

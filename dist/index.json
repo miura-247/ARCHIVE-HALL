@@ -1,0 +1,27 @@
+[
+  {
+    "id": "aiko",
+    "name": "愛子 (Aiko)",
+    "category": "魔女",
+    "tags": [
+      "女",
+      "魔法",
+      "図書館"
+    ],
+    "excerpt": "古い図書館に住む若き魔法使い。知識と本をこよなく愛し、時折冒険にも出かける。",
+    "thumb": "imgs/chara/aiko/face1.png",
+    "link": "characters/aiko.html"
+  },
+  {
+    "id": "ren",
+    "name": "蓮 (Ren)",
+    "category": "人間",
+    "tags": [
+      "男",
+      "剣"
+    ],
+    "excerpt": "静かな口数で知られる青年剣士。過去の影を背負いながら、正義のために剣を振るう。",
+    "thumb": null,
+    "link": "characters/ren.html"
+  }
+]
