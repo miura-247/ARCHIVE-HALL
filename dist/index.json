@@ -13,18 +13,6 @@
     "link": "characters/aiko.html"
   },
   {
-    "id": "ren",
-    "name": "蓮 (Ren)",
-    "category": "人間",
-    "tags": [
-      "男",
-      "剣"
-    ],
-    "excerpt": "静かな口数で知られる青年剣士。過去の影を背負いながら、正義のために剣を振るう。",
-    "thumb": null,
-    "link": "characters/ren.html"
-  },
-  {
     "id": "mika",
     "name": "美香 (Mika)",
     "category": "魔女",
@@ -35,5 +23,17 @@
     "excerpt": "薬草と調合を好む陽気な魔女。村人たちの相談役でもある。",
     "thumb": "imgs/chara/mika/face1.png",
     "link": "characters/mika.html"
+  },
+  {
+    "id": "ren",
+    "name": "蓮 (Ren)",
+    "category": "人間",
+    "tags": [
+      "男",
+      "剣"
+    ],
+    "excerpt": "静かな口数で知られる青年剣士。過去の影を背負いながら、正義のために剣を振るう。",
+    "thumb": null,
+    "link": "characters/ren.html"
   }
 ]

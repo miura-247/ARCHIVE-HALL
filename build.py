@@ -92,6 +92,15 @@ def copy_assets():
     src_js = ROOT / 'js'
     if src_js.exists() and src_js.is_dir():
         shutil.copytree(src_js, OUT / 'js')
+    # copy top-level imgs/ if present
+    candidate_imgs = [ROOT / 'imgs', DATA / 'imgs', ROOT / 'assets', DATA / 'assets']
+    for src in candidate_imgs:
+        if src.exists() and src.is_dir():
+            dest = OUT / src.name
+            # if dest exists, remove to ensure up-to-date
+            if dest.exists():
+                shutil.rmtree(dest)
+            shutil.copytree(src, dest)
 
 
 def build():
