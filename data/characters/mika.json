@@ -3,7 +3,8 @@
   "name": "美香 (Mika)",
   "series": "USITAS",
   "era": "PRESENT",
-  "category": "魔女",
+  "category":"魔女",
+  "disabled": true,
   "tags": [
     "女",
     "薬草"

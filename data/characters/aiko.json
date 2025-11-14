@@ -4,6 +4,7 @@
   "series": "USITAS",
   "era": "PAST",
   "category": "魔女",
+  "disabled": true,
   "tags": [
     "女",
     "魔法",

@@ -63,7 +63,9 @@ def load_characters():
     for c in chars:
         if 'id' not in c:
             raise ValueError(f'Character missing id: {c}')
-    return chars
+    # filter out intentionally disabled/draft characters so devs can keep files without publishing
+    filtered = [c for c in chars if not (isinstance(c, dict) and (c.get('disabled') or c.get('draft')))]
+    return filtered
 
 
 def render_template(path: Path, ctx: dict):
@@ -116,7 +118,7 @@ def build():
     # generate per-character pages and per-character JSON in dist
     for c in chars:
         cid = c['id']
-        # images HTML
+        # images HTML for the ILLUST section (list of images)
         images_html = ''
         imgs = c.get('images', []) or []
         if isinstance(imgs, list):
@@ -124,6 +126,12 @@ def build():
             for img in imgs:
                 items.append(f'<li><img src="../{img}" alt="{c.get("name","")}"></li>')
             images_html = '\n'.join(items)
+        # avatar_html: prefer a dedicated standing image (first in images) for detail pages; fall back to svg
+        avatar_html = ''
+        if isinstance(imgs, list) and len(imgs) > 0 and imgs[0]:
+            avatar_html = f'<img src="../{imgs[0]}" alt="{c.get("name","")}" />'
+        else:
+            avatar_html = c.get('svg','') or ''
         # relations
         rel_html = ''
         rels = c.get('relations', []) or []
@@ -139,6 +147,8 @@ def build():
             rel_html = '\n'.join(items)
 
         ctx = c.copy()
+        # prefer full_name for detail page heading if available
+        ctx['display_name'] = c.get('full_name') or c.get('name')
         # render tags as spans for character page
         tags = c.get('tags', []) or []
         tags_html = ''.join(f'<span class="tag">{t}</span>' for t in tags)
@@ -147,6 +157,7 @@ def build():
         ctx['likes'] = ', '.join(c.get('likes', []))
         ctx['dislikes'] = ', '.join(c.get('dislikes', []))
         ctx['images'] = images_html
+        ctx['avatar_html'] = avatar_html
         ctx['relations'] = rel_html
 
         out_html = render_template(tpl_char, ctx)
@@ -189,7 +200,7 @@ def build():
             # prefer use of svg if present in original data
             orig = next((x for x in chars if x['id'] == it['id']), {})
             sv = orig.get('svg', '')
-            card = f'<li><a href="{it["link"]}" data-tags="{tags}">{sv}<span class="sr-only">{it["name"]}</span></a></li>'
+            card = f'<li><a href="{it["link"]}" data-tags="{tags}">{sv}<span class="name">{it["name"]}</span></a></li>'
             cards.append(card)
         sections.append(f'<section id="cat-{cat_id}"><h2>{cat}</h2><ul class="icons">' + '\n'.join(cards) + '</ul></section>')
 

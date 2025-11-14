@@ -1,8 +1,8 @@
 
 /* Use system font stack for a sharp, Apple-like rendering on macOS */
 :root{
-  --bg:#070707; /* page background */
-  --surface:#0f0f10; /* card/surface */
+  --bg:#0f1113; /* slightly grayish dark (was #070707) */
+  --surface:#161718; /* lighter surface for cards */
   --muted:#bdb3a0; /* secondary text */
   --text:#f6efe6; /* primary text */
   --accent:#d4af37; /* gold accent */
@@ -13,7 +13,7 @@
 
 *{box-sizing:border-box}
 /* prioritize system UI fonts for crisp rendering on macOS/iOS */
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans JP",Inter,sans-serif;background:linear-gradient(180deg,#070707,#0b0b0b);color:var(--text);margin:0;padding:24px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans JP",Inter,sans-serif;background:linear-gradient(180deg,var(--bg),#0f1315);color:var(--text);margin:0;padding:24px}
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
 .brand a{color:var(--text);text-decoration:none;font-weight:700;font-size:1.2rem}
 .top-nav a{color:var(--muted);margin-left:12px;text-decoration:none}
@@ -36,20 +36,123 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 .toc a.active{background:linear-gradient(90deg, rgba(212,175,55,0.14), rgba(212,175,55,0.06));color:var(--text);box-shadow:inset 0 0 0 1px rgba(212,175,55,0.06)}
 
 .category-section{margin-bottom:28px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.02)}
-.category-section h2{font-size:1.05rem;margin:8px 0;color:var(--accent-strong);font-weight:600}
+.category-section h2{font-size:1.02rem;margin:8px 0;color:var(--accent-strong);font-weight:500}
 
 .prof-head span{color:var(--muted)}
 .prof-head h2{margin:6px 0;color:var(--accent);font-weight:700}
-.prof-illust{display:block;margin-bottom:12px}
-.avatar{width:220px;height:220px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.15));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)}
-.prof-status{background:var(--glass);padding:12px;border-radius:10px}
+.prof-illust{display:flex;margin-bottom:12px;justify-content:center}
+.avatar{width:220px;height:220px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.15));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);margin:0 auto}
+.avatar img{max-width:100%;max-height:100%;display:block;object-fit:contain;border-radius:8px}
+.prof-status{background:var(--surface);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.45)}
 .prof-status ul{list-style:none;padding:0;margin:0}
-.prof-status li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
-.prof-tags{margin-top:12px}
+.prof-status li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.prof-tags{margin-top:12px;margin-bottom:14px}
+/* card style for textual sections */
+.prof-text{display:block;margin-top:18px;margin-bottom:12px;background:var(--surface);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.35)}
+.conection{margin-top:12px;background:var(--surface);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.35)}
+.illust{margin-top:12px;background:var(--surface);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.35)}
+.illust ul.icons{margin-top:8px}
+
+/* Decorative stars near section headings */
+.profile section h3,
+.illust h3,
+.prof-status h3,
+.prof-tags h3,
+.conection h3{
+  position:relative;
+  display:inline-block;
+  padding-left:22px;
+  color:var(--accent);
+  font-weight:600;
+}
+.profile section h3::before,
+.illust h3::before,
+.prof-status h3::before,
+.prof-tags h3::before,
+.conection h3::before{
+  content:'✦';
+  position:absolute;
+  left:0; top:50%; transform:translateY(-50%);
+  color:var(--accent-strong);
+  font-size:0.9rem;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
+}
+.profile section h3::after,
+.illust h3::after,
+.prof-status h3::after,
+.prof-tags h3::after,
+.conection h3::after{
+  content:'✧';
+  position:absolute;
+  left:-8px; top:-8px; transform:rotate(-14deg);
+  color:rgba(212,175,55,0.12);
+  font-size:0.6rem;
+}
+
+/* category headings also get small stars */
+.category-section h2{position:relative}
+.category-section h2::before{
+  content:'';
+  position:absolute;
+  width:18px;height:18px;left:-20px;top:50%;transform:translateY(-50%);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon fill='%23d4af37' points='12,2 14.8,8.6 21.8,9.3 16.9,13.9 18.4,20.8 12,17.2 5.6,20.8 7.1,13.9 2.2,9.3 9.2,8.6'/></svg>");
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+}
+.category-section h2::after{
+  content:'';
+  position:absolute;width:10px;height:10px;right:-18px;top:6px;color:rgba(212,175,55,0.12);font-size:0.6rem;transform:rotate(12deg);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon fill='%23d4af37' points='12,2 14.8,8.6 21.8,9.3 16.9,13.9 18.4,20.8 12,17.2 5.6,20.8 7.1,13.9 2.2,9.3 9.2,8.6'/></svg>");
+  background-size:contain;background-repeat:no-repeat;opacity:0.12;
+}
+
+/* Use diamond glyph (✦) for character detail section headings */
+.profile section h3,
+.illust h3,
+.prof-status h3,
+.prof-tags h3,
+.conection h3{
+  position:relative;
+  display:inline-block;
+  padding-left:22px;
+  color:var(--accent);
+  font-weight:600;
+}
+.profile section h3::before,
+.illust h3::before,
+.prof-status h3::before,
+.prof-tags h3::before,
+.conection h3::before{
+  content:'✦';
+  position:absolute;
+  left:0; top:50%; transform:translateY(-50%);
+  color:var(--accent-strong);
+  font-size:0.95rem;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
+}
+.profile section h3::after,
+.illust h3::after,
+.prof-status h3::after,
+.prof-tags h3::after,
+.conection h3::after{
+  content:'✧';
+  position:absolute;
+  left:-8px; top:-8px; transform:rotate(-14deg);
+  color:rgba(212,175,55,0.12);
+  font-size:0.6rem;
+}
+
+/* Index card and icon label tweaks */
+.category-section{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(0,0,0,0.06));padding:12px;border-radius:10px}
+.icons li{width:88px;height:112px}
+.icons li img, .icons li svg{width:72px;height:72px}
+.icons li{position:relative}
+.icons li .name{position:absolute;left:50%;bottom:-10px;transform:translate(-50%,8px);opacity:0;transition:opacity .18s ease,transform .18s ease;background:rgba(0,0,0,0.45);padding:4px 8px;border-radius:8px;font-size:0.78rem;color:var(--text);white-space:nowrap;pointer-events:none}
+.icons li a{padding:6px 4px}
+.icons li:hover .name,.icons li a:focus .name{opacity:1;transform:translate(-50%,0);color:var(--text)}
 .tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
 .tag{display:inline-block;background:rgba(212,175,55,0.06);padding:6px 10px;border-radius:999px;color:var(--accent-strong);margin-right:8px;font-size:.9rem;border:1px solid rgba(212,175,55,0.06)}
 .tag.clickable{cursor:pointer;box-shadow:0 6px 18px rgba(212,175,55,0.04)}
-.icons{display:flex;gap:8px;overflow-x:auto;padding:8px 0}
+.icons{display:flex;gap:8px;padding:8px 0}
 .icons li{list-style:none}
 a.icon{display:inline-block}
 

@@ -3,7 +3,8 @@
   "name": "蓮 (Ren)",
   "series": "USITAS",
   "era": "PRESENT",
-  "category": "人間",
+  "category":"人間",
+  "disabled": true,
   "tags": [
     "男",
     "剣"
