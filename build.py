@@ -159,6 +159,18 @@ def build():
         ctx['images'] = images_html
         ctx['avatar_html'] = avatar_html
         ctx['relations'] = rel_html
+        # render bio into simple HTML: paragraphs from double-newline, <br> for single newlines
+        raw_bio = c.get('bio', '') or ''
+        # normalize CRLF
+        raw_bio = raw_bio.replace('\r\n', '\n').replace('\r', '\n')
+        # split into paragraphs by two or more newlines
+        paras = [p.strip() for p in re.split(r'\n{2,}', raw_bio) if p.strip()]
+        bio_parts = []
+        for p in paras:
+            # replace single newlines inside paragraph with <br>
+            p_html = p.replace('\n', '<br>')
+            bio_parts.append(f'<p>{p_html}</p>')
+        ctx['bio_html'] = '\n'.join(bio_parts)
 
         out_html = render_template(tpl_char, ctx)
         (OUT / 'characters' / f"{cid}.html").write_text(out_html, encoding='utf-8')
