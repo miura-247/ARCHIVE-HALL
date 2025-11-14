@@ -139,6 +139,10 @@ def build():
             rel_html = '\n'.join(items)
 
         ctx = c.copy()
+        # render tags as spans for character page
+        tags = c.get('tags', []) or []
+        tags_html = ''.join(f'<span class="tag">{t}</span>' for t in tags)
+        ctx['tags_html'] = tags_html
         # join lists for simple placeholders
         ctx['likes'] = ', '.join(c.get('likes', []))
         ctx['dislikes'] = ', '.join(c.get('dislikes', []))
