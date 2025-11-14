@@ -1,5 +1,214 @@
 [
   {
+    "id": "ain",
+    "name": "アイン",
+    "category": "神",
+    "tags": [
+      "神"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/ain.html"
+  },
+  {
+    "id": "akari",
+    "name": "あかり",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/akari.html"
+  },
+  {
+    "id": "astral",
+    "name": "アストラル",
+    "category": "魔女",
+    "tags": [
+      "魔女"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/astral.html"
+  },
+  {
+    "id": "babel",
+    "name": "バベル",
+    "category": "悪魔",
+    "tags": [
+      "悪魔"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/babel.html"
+  },
+  {
+    "id": "beatrice",
+    "name": "ベアトリス",
+    "category": "天使",
+    "tags": [
+      "天使"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/beatrice.html"
+  },
+  {
+    "id": "carter",
+    "name": "カーター",
+    "category": "魔女",
+    "tags": [
+      "魔女"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/carter.html"
+  },
+  {
+    "id": "erma",
+    "name": "エルマ",
+    "category": "悪魔",
+    "tags": [
+      "悪魔"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/erma.html"
+  },
+  {
+    "id": "ginraden",
+    "name": "銀螺鈿",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/ginraden.html"
+  },
+  {
+    "id": "hercelina",
+    "name": "ヘルセリナ",
+    "category": "魔女",
+    "tags": [
+      "魔女"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/hercelina.html"
+  },
+  {
+    "id": "hikaru",
+    "name": "ひかる",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/hikaru.html"
+  },
+  {
+    "id": "izana",
+    "name": "イザナ",
+    "category": "神",
+    "tags": [
+      "神"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/izana.html"
+  },
+  {
+    "id": "jack",
+    "name": "ジャック",
+    "category": "神",
+    "tags": [
+      "神"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/jack.html"
+  },
+  {
+    "id": "kagedai",
+    "name": "影代",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/kagedai.html"
+  },
+  {
+    "id": "kuzu",
+    "name": "葛",
+    "category": "その他",
+    "tags": [
+      "その他"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/kuzu.html"
+  },
+  {
+    "id": "kyupris",
+    "name": "キュプリス",
+    "category": "天使",
+    "tags": [
+      "天使"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/kyupris.html"
+  },
+  {
+    "id": "mashiro",
+    "name": "眞白",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/mashiro.html"
+  },
+  {
+    "id": "mystery",
+    "name": "？？？？",
+    "category": "その他",
+    "tags": [
+      "その他"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/mystery.html"
+  },
+  {
+    "id": "niwashi",
+    "name": "庭師",
+    "category": "悪魔",
+    "tags": [
+      "悪魔"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/niwashi.html"
+  },
+  {
+    "id": "opera",
+    "name": "オペラ",
+    "category": "魔女",
+    "tags": [
+      "魔女"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/opera.html"
+  },
+  {
     "id": "raban",
     "name": "ラバン",
     "category": "魔女",
@@ -12,5 +221,60 @@
     "excerpt": "「盲目の魔女」ラバン・シュリュズベリィ。ミスカトニック大学で教鞭を取っている。錬金が専門。魔術の才はない。『知の唯一識』を求めて、魔女を殺して回っている。\n\n出身はアーカム。若い頃、外宇宙に接続し、ある別の世界の泡に触れ、そこで出会った女性「セラエノ」により不老不死の力のヒントを...",
     "thumb": null,
     "link": "characters/raban.html"
+  },
+  {
+    "id": "rachel",
+    "name": "レイチェル",
+    "category": "天使",
+    "tags": [
+      "天使"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/rachel.html"
+  },
+  {
+    "id": "ritsuichi",
+    "name": "律一",
+    "category": "人間",
+    "tags": [
+      "人間"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/ritsuichi.html"
+  },
+  {
+    "id": "rondina",
+    "name": "ロンディーナ",
+    "category": "魔女",
+    "tags": [
+      "魔女"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/rondina.html"
+  },
+  {
+    "id": "shin",
+    "name": "シン",
+    "category": "神",
+    "tags": [
+      "神"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/shin.html"
+  },
+  {
+    "id": "sothis",
+    "name": "ソティス",
+    "category": "天使",
+    "tags": [
+      "天使"
+    ],
+    "excerpt": "",
+    "thumb": null,
+    "link": "characters/sothis.html"
   }
 ]
