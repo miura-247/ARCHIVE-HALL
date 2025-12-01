@@ -2,5 +2,7 @@
   "id": "kyupris",
   "name": "キュプリス",
   "category": "天使",
-  "tags": ["天使"]
+  "tags": ["天使"],
+  "theme": "celestial",
+  "images": ["https://www.rabbithutch.site/usagoya/picture.php?user=a61a86d7877476cd5f760dcb6d58fb14&an=true&file=IMG_2174.webp"]
 }

@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,user-scalable=1">
   <meta name="google" content="notranslate">
-  <title>{{name}} - Archive</title>
+  <meta name="theme-color" content="#0a0a0a">
+  <title>{{name}} ─ DISCOVERY</title>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="{{theme_class}}">
 
 <header class="site-header">
-  <h1><a href="../index.html">Archive v3</a></h1>
-  <nav class="top-nav"><a href="../index.html">HOME</a> <a href="#">CHARACTER</a></nav>
+  <h1><a href="../index.html">DISCOVERY</a></h1>
+  <nav class="top-nav">
+    <a href="../index.html">Home</a>
+    <a href="../index.html#toc">Archive</a>
+  </nav>
 </header>
 
 <main class="profile">
@@ -23,24 +27,28 @@
     <h2>{{display_name}}</h2>
   </section>
 
-  <section class="prof-illust">
-    <div class="avatar">{{avatar_html}}</div>
-  </section>
+  <div class="prof-main">
+    <section class="prof-illust">
+      <div class="avatar">{{avatar_html}}</div>
+    </section>
 
-  <section class="prof-status">
-    <h3>STATUS</h3>
-    <ul>
-      <li><b>HEIGHT：</b><span>{{height}}</span></li>
-      <li><b>SEX：</b><span>{{gender}}</span></li>
-      <li><b>LIKE：</b><span>{{likes}}</span></li>
-      <li><b>HATE：</b><span>{{dislikes}}</span></li>
-    </ul>
-  </section>
+    <div class="prof-side">
+      <section class="prof-status">
+        <h3>STATUS</h3>
+        <ul>
+          <li><b>HEIGHT：</b><span>{{height}}</span></li>
+          <li><b>SEX：</b><span>{{gender}}</span></li>
+          <li><b>LIKE：</b><span>{{likes}}</span></li>
+          <li><b>HATE：</b><span>{{dislikes}}</span></li>
+        </ul>
+      </section>
 
-  <section class="prof-tags">
-    <h3>TAGS</h3>
-    <div class="tags">{{tags_html}}</div>
-  </section>
+      <section class="prof-tags">
+        <h3>TAGS</h3>
+        <div class="tags">{{tags_html}}</div>
+      </section>
+    </div>
+  </div>
 
   <section class="prof-text">
     <h3>OVERVIEW</h3>
@@ -61,7 +69,7 @@
 
 </main>
 
-<footer><small>Generated</small></footer>
+<footer><small>Managed by the Stellar Witch</small></footer>
 
 </body>
 </html>

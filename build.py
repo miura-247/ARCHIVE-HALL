@@ -110,6 +110,15 @@ def build():
     ensure_out()
     copy_assets()
 
+    # load optional category bios
+    category_bios = {}
+    cat_file = DATA / 'categories.json'
+    if cat_file.exists():
+        try:
+            category_bios = json.loads(cat_file.read_text(encoding='utf-8'))
+        except Exception:
+            category_bios = {}
+
     index_meta = []
 
     tpl_char = TEMPLATES / 'character.html'
@@ -149,6 +158,9 @@ def build():
         ctx = c.copy()
         # prefer full_name for detail page heading if available
         ctx['display_name'] = c.get('full_name') or c.get('name')
+        # theme class for per-character styling
+        theme = c.get('theme', '')
+        ctx['theme_class'] = f'theme-{theme}' if theme else ''
         # render tags as spans for character page
         tags = c.get('tags', []) or []
         tags_html = ''.join(f'<span class="tag">{t}</span>' for t in tags)
@@ -214,7 +226,12 @@ def build():
             sv = orig.get('svg', '')
             card = f'<li><a href="{it["link"]}" data-tags="{tags}">{sv}<span class="name">{it["name"]}</span></a></li>'
             cards.append(card)
-        sections.append(f'<section id="cat-{cat_id}"><h2>{cat}</h2><ul class="icons">' + '\n'.join(cards) + '</ul></section>')
+        # include category bio paragraph if provided
+        bio_html = ''
+        bio_text = category_bios.get(cat)
+        if bio_text:
+            bio_html = f'<p class="category-bio">{bio_text}</p>'
+        sections.append(f'<section id="cat-{cat_id}"><h2>{cat}</h2>' + bio_html + '<ul class="icons">' + '\n'.join(cards) + '</ul></section>')
 
     index_html = tpl_index.read_text(encoding='utf-8')
     index_html = index_html.replace('<!-- generated toc -->', '<nav class="toc">' + '\n'.join(toc_items) + '</nav>')

@@ -2,5 +2,6 @@
   "id": "astral",
   "name": "アストラル",
   "category": "魔女",
-  "tags": ["魔女"]
+  "tags": ["魔女"],
+  "theme": "astrology"
 }
