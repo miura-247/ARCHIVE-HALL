@@ -16,6 +16,9 @@ import json
 import shutil
 import re
 import sys
+import urllib.request
+import urllib.parse
+import hashlib
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
@@ -82,6 +85,8 @@ def ensure_out():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
     (OUT / 'characters').mkdir()
+    # ensure images dir so build can place downloaded assets
+    (OUT / 'images').mkdir()
 
 
 def copy_assets():
@@ -130,11 +135,64 @@ def build():
         # images HTML for the ILLUST section (list of images)
         images_html = ''
         imgs = c.get('images', []) or []
+        # normalize images: if external URL, download into OUT/images and replace reference
         if isinstance(imgs, list):
             items = []
-            for img in imgs:
-                items.append(f'<li><img src="../{img}" alt="{c.get("name","")}"></li>')
+            normalized = []
+            for idx, img in enumerate(imgs):
+                if isinstance(img, str) and img.startswith(('http://', 'https://')):
+                    # derive a stable filename: <cid>_<index>.<ext> (use hash fallback)
+                    parsed = urllib.parse.urlparse(img)
+                    base = Path(parsed.path).name
+                    ext = ''
+                    if '.' in base:
+                        ext = Path(base).suffix
+                    else:
+                        # try to infer from content-type later; fallback to .img
+                        ext = ''
+                    # create candidate name
+                    candidate = f"{cid}_{idx}{ext}"
+                    outpath = OUT / 'images' / candidate
+                    # if no extension, fetch headers to try to get content-type
+                    try:
+                        if not outpath.exists():
+                            # download safely
+                            with urllib.request.urlopen(img) as resp:
+                                info = resp.info()
+                                data = resp.read()
+                                # if no ext, try to map content-type
+                                if not ext:
+                                    ctype = info.get_content_type()
+                                    if ctype == 'image/png':
+                                        ext = '.png'
+                                    elif ctype == 'image/jpeg' or ctype == 'image/jpg':
+                                        ext = '.jpg'
+                                    elif ctype == 'image/webp':
+                                        ext = '.webp'
+                                    elif ctype == 'image/gif':
+                                        ext = '.gif'
+                                    else:
+                                        ext = '.img'
+                                    candidate = f"{cid}_{idx}{ext}"
+                                    outpath = OUT / 'images' / candidate
+                                outpath.write_bytes(data)
+                    except Exception as e:
+                        print(f"Failed to download image {img}: {e}", file=sys.stderr)
+                        # fallback: keep original URL so page still tries to load it
+                        normalized.append(img)
+                        items.append(f'<li><img src="../{img}" alt="{c.get("name","")}"></li>')
+                        continue
+                    # use relative path inside dist (images/<file>)
+                    rel = f'images/{candidate}'
+                    normalized.append(rel)
+                    items.append(f'<li><img src="../{rel}" alt="{c.get("name","")}"></li>')
+                else:
+                    # assume local path relative to dist
+                    normalized.append(img)
+                    items.append(f'<li><img src="../{img}" alt="{c.get("name","")}"></li>')
             images_html = '\n'.join(items)
+            # replace imgs list in the character data so avatar generation below can reuse normalized paths
+            imgs = normalized
         # avatar_html: prefer a dedicated standing image (first in images) for detail pages; fall back to svg
         avatar_html = ''
         if isinstance(imgs, list) and len(imgs) > 0 and imgs[0]:
