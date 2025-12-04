@@ -93,8 +93,8 @@
   const input = document.getElementById('passwordInput');
   const error = document.getElementById('errorMsg');
   
-  // ローカルストレージで認証状態を保持
-  if(localStorage.getItem('clarisse_unlocked') === 'true'){
+  // セッションストレージで認証状態を保持（タブ/ブラウザを閉じるとリセットされる）
+  if(sessionStorage.getItem('clarisse_unlocked') === 'true'){
     gate.classList.add('hidden');
     content.classList.add('unlocked');
   }
@@ -103,7 +103,8 @@
     if(e.key === 'Enter'){
       const val = input.value.trim().toUpperCase();
       if(val === PASSWORD){
-        localStorage.setItem('clarisse_unlocked', 'true');
+        // セッション限定で保持
+        sessionStorage.setItem('clarisse_unlocked', 'true');
         gate.style.opacity = '0';
         gate.style.transition = 'opacity 0.5s ease';
         setTimeout(function(){
