@@ -220,7 +220,8 @@ body{
 .avatar{
   width:auto;
   height:auto;
-  max-width:320px;
+  /* increased max-width so standing illustrations appear larger on desktop */
+  max-width:420px;
   background:transparent;
   border:none;
   display:block;
@@ -228,7 +229,8 @@ body{
 
 .avatar img{
   max-width:100%;
-  max-height:480px;
+  /* allow taller images to show larger while keeping layout intact */
+  max-height:720px;
   display:block;
   object-fit:contain;
   border-radius:4px;
@@ -455,8 +457,9 @@ a.icon{display:inline-block}
   .prof-main{flex-direction:column;align-items:center}
   .prof-illust{order:1}
   .prof-side{order:2;width:100%}
-  .avatar{max-width:280px}
-  .avatar img{max-height:400px}
+  /* medium screens: slightly larger than before for better visibility */
+  .avatar{max-width:360px}
+  .avatar img{max-height:560px}
 }
 
 @media (max-width: 480px){
@@ -1606,3 +1609,657 @@ body.theme-astrology::after{
 
 body.theme-astrology::-webkit-scrollbar-thumb{background:rgba(255,215,0,0.3)}
 body.theme-astrology::-webkit-scrollbar-thumb:hover{background:rgba(255,215,0,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: ネオン (Neon) - ベアトリス用
+   夜のネオン街・バーテンダー・ピンク＆シアン
+   ═══════════════════════════════════════════════════════════ */
+body.theme-neon{
+  --bg:#0a0510;
+  --bg-deep:#050208;
+  --surface:#120818;
+  --surface-2:#180c20;
+  --muted:#8a6090;
+  --text:#e8d8f0;
+  --text-bright:#fff0ff;
+  --accent:#ff00aa;
+  --accent-strong:#ff40c0;
+  --accent-glow:rgba(255,0,170,0.3);
+  --border:rgba(0,255,255,0.15);
+  --border-accent:rgba(255,0,170,0.4);
+  background:
+    radial-gradient(ellipse at 30% 90%, rgba(255,0,170,0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 10%, rgba(0,255,255,0.08) 0%, transparent 40%),
+    linear-gradient(180deg, #050208 0%, #0a0510 50%, #100818 100%);
+}
+
+body.theme-neon .site-header{
+  border-bottom-color:rgba(255,0,170,0.3);
+}
+
+body.theme-neon .site-header h1 a,
+body.theme-neon .brand a{
+  color:#00ffff;
+  text-shadow:0 0 10px rgba(0,255,255,0.6), 0 0 20px rgba(0,255,255,0.3);
+}
+
+body.theme-neon .top-nav a{color:#8a6090}
+body.theme-neon .top-nav a:hover{color:#ff00aa;text-shadow:0 0 8px rgba(255,0,170,0.5)}
+
+body.theme-neon .prof-head h2{
+  color:#ff00aa;
+  text-shadow:
+    0 0 10px rgba(255,0,170,0.8),
+    0 0 30px rgba(255,0,170,0.4),
+    0 0 50px rgba(0,255,255,0.2);
+  letter-spacing:0.08em;
+}
+
+body.theme-neon .prof-head span{
+  color:#00ffff;
+  text-shadow:0 0 8px rgba(0,255,255,0.4);
+}
+
+body.theme-neon .avatar{
+  border:1px solid rgba(0,255,255,0.4);
+  box-shadow:
+    0 0 20px rgba(255,0,170,0.2),
+    0 0 40px rgba(0,255,255,0.15),
+    inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+body.theme-neon .prof-status,
+body.theme-neon .prof-tags,
+body.theme-neon .prof-text,
+body.theme-neon .conection,
+body.theme-neon .illust{
+  background:linear-gradient(135deg, rgba(18,8,24,0.95), rgba(24,12,32,0.95));
+  border:1px solid rgba(0,255,255,0.12);
+  box-shadow:
+    0 0 20px rgba(255,0,170,0.05),
+    inset 0 1px 0 rgba(0,255,255,0.05);
+}
+
+body.theme-neon .profile section h3,
+body.theme-neon .illust h3,
+body.theme-neon .prof-status h3,
+body.theme-neon .prof-tags h3,
+body.theme-neon .conection h3{
+  color:#00ffff;
+  border-bottom-color:rgba(0,255,255,0.2);
+  text-shadow:0 0 8px rgba(0,255,255,0.4);
+}
+
+body.theme-neon .prof-status li{border-bottom-color:rgba(0,255,255,0.08)}
+body.theme-neon .prof-status li b{color:#8a6090}
+
+body.theme-neon .tag{
+  border-color:rgba(255,0,170,0.25);
+  color:#8a6090;
+}
+
+body.theme-neon .tag:hover{
+  border-color:#ff00aa;
+  color:#ff00aa;
+  background:rgba(255,0,170,0.1);
+  box-shadow:0 0 10px rgba(255,0,170,0.3);
+}
+
+body.theme-neon footer{
+  border-top-color:rgba(0,255,255,0.15);
+  color:#8a6090;
+}
+
+body.theme-neon::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(90deg, transparent 49.5%, rgba(255,0,170,0.03) 50%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, rgba(0,255,255,0.02) 50%, transparent 50.5%);
+  background-size:60px 60px;
+  z-index:-1;
+}
+
+body.theme-neon::-webkit-scrollbar-thumb{background:rgba(255,0,170,0.4)}
+body.theme-neon::-webkit-scrollbar-thumb:hover{background:rgba(255,0,170,0.6)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: 泡沫 (Bubble) - ソティス用
+   泡の天使・幻想的・虹色の泡・淡いパステル
+   ═══════════════════════════════════════════════════════════ */
+body.theme-bubble{
+  --bg:#080a10;
+  --bg-deep:#040608;
+  --surface:#0c1018;
+  --surface-2:#101420;
+  --muted:#7090a8;
+  --text:#d0e0f0;
+  --text-bright:#f0f8ff;
+  --accent:#a0d0ff;
+  --accent-strong:#80c0ff;
+  --accent-glow:rgba(160,208,255,0.2);
+  --border:rgba(180,200,255,0.12);
+  --border-accent:rgba(160,208,255,0.3);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(255,180,220,0.08) 0%, transparent 35%),
+    radial-gradient(ellipse at 80% 70%, rgba(180,220,255,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(200,180,255,0.06) 0%, transparent 50%),
+    var(--bg);
+}
+
+body.theme-bubble .site-header{
+  border-bottom-color:rgba(180,200,255,0.15);
+}
+
+body.theme-bubble .site-header h1 a,
+body.theme-bubble .brand a{
+  color:#a0d0ff;
+  text-shadow:0 0 15px rgba(160,208,255,0.5);
+}
+
+body.theme-bubble .top-nav a{color:#7090a8}
+body.theme-bubble .top-nav a:hover{color:#a0d0ff}
+
+body.theme-bubble .prof-head h2{
+  background:linear-gradient(135deg, #ffc0e0, #a0d0ff, #c0a0ff, #a0ffc0, #ffc0e0);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:bubble-rainbow 8s ease infinite;
+  text-shadow:none;
+}
+
+@keyframes bubble-rainbow{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
+body.theme-bubble .prof-head span{
+  color:#a0d0ff;
+}
+
+body.theme-bubble .avatar{
+  border:1px solid rgba(180,200,255,0.25);
+  box-shadow:
+    0 0 30px rgba(160,208,255,0.15),
+    0 0 60px rgba(255,180,220,0.1),
+    0 0 90px rgba(180,160,255,0.08);
+}
+
+body.theme-bubble .prof-status,
+body.theme-bubble .prof-tags,
+body.theme-bubble .prof-text,
+body.theme-bubble .conection,
+body.theme-bubble .illust{
+  background:linear-gradient(135deg, rgba(12,16,24,0.9), rgba(16,20,32,0.9));
+  border:1px solid rgba(180,200,255,0.1);
+  box-shadow:0 4px 30px rgba(0,0,0,0.3);
+  backdrop-filter:blur(5px);
+}
+
+body.theme-bubble .profile section h3,
+body.theme-bubble .illust h3,
+body.theme-bubble .prof-status h3,
+body.theme-bubble .prof-tags h3,
+body.theme-bubble .conection h3{
+  color:#a0d0ff;
+  border-bottom-color:rgba(160,208,255,0.2);
+}
+
+body.theme-bubble .prof-status li{border-bottom-color:rgba(180,200,255,0.08)}
+body.theme-bubble .prof-status li b{color:#7090a8}
+
+body.theme-bubble .tag{
+  border-color:rgba(180,200,255,0.15);
+  color:#7090a8;
+}
+
+body.theme-bubble .tag:hover{
+  border-color:rgba(255,180,220,0.4);
+  color:#ffc0e0;
+  background:rgba(255,180,220,0.08);
+}
+
+body.theme-bubble footer{
+  border-top-color:rgba(180,200,255,0.1);
+  color:#7090a8;
+}
+
+/* 浮遊する泡 */
+body.theme-bubble::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,200,220,0.15) 0%, rgba(255,200,220,0.02) 3%, transparent 4%),
+    radial-gradient(circle at 90% 80%, rgba(180,220,255,0.12) 0%, rgba(180,220,255,0.02) 4%, transparent 5%),
+    radial-gradient(circle at 30% 70%, rgba(200,180,255,0.1) 0%, rgba(200,180,255,0.02) 2.5%, transparent 3.5%),
+    radial-gradient(circle at 70% 30%, rgba(180,255,200,0.08) 0%, rgba(180,255,200,0.02) 3.5%, transparent 4.5%),
+    radial-gradient(circle at 50% 50%, rgba(255,220,180,0.1) 0%, rgba(255,220,180,0.02) 2%, transparent 3%),
+    radial-gradient(circle at 85% 15%, rgba(220,180,255,0.12) 0%, rgba(220,180,255,0.02) 3%, transparent 4%),
+    radial-gradient(circle at 15% 85%, rgba(180,200,255,0.1) 0%, rgba(180,200,255,0.02) 4%, transparent 5%);
+  z-index:-1;
+  animation:bubbles-float 15s ease-in-out infinite;
+}
+
+@keyframes bubbles-float{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-15px) scale(1.02)}
+}
+
+body.theme-bubble::-webkit-scrollbar-thumb{background:rgba(160,208,255,0.3)}
+body.theme-bubble::-webkit-scrollbar-thumb:hover{background:rgba(160,208,255,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: 邪教 (Heresy) - バベル用
+   邪教のシスター・黒と金・聖なるダーク
+   ═══════════════════════════════════════════════════════════ */
+body.theme-heresy{
+  --bg:#08080a;
+  --bg-deep:#040406;
+  --surface:#0e0e12;
+  --surface-2:#121218;
+  --muted:#8a8890;
+  --text:#e0dce8;
+  --text-bright:#fff8f0;
+  --accent:#d4a020;
+  --accent-strong:#e8b830;
+  --accent-glow:rgba(212,160,32,0.2);
+  --border:rgba(212,160,32,0.1);
+  --border-accent:rgba(212,160,32,0.35);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(212,160,32,0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.5) 0%, transparent 50%),
+    var(--bg);
+}
+
+body.theme-heresy .site-header{
+  border-bottom-color:rgba(212,160,32,0.2);
+}
+
+body.theme-heresy .site-header h1 a,
+body.theme-heresy .brand a{
+  color:#d4a020;
+  text-shadow:0 0 10px rgba(212,160,32,0.4);
+  font-family:"Times New Roman","Noto Serif JP",serif;
+}
+
+body.theme-heresy .top-nav a{color:#8a8890}
+body.theme-heresy .top-nav a:hover{color:#d4a020}
+
+body.theme-heresy .prof-head h2{
+  color:#d4a020;
+  text-shadow:
+    0 0 20px rgba(212,160,32,0.5),
+    0 0 40px rgba(212,160,32,0.3);
+  font-family:"Times New Roman","Noto Serif JP",serif;
+  font-weight:400;
+  letter-spacing:0.1em;
+}
+
+body.theme-heresy .prof-head span{
+  color:#8a8890;
+  font-style:italic;
+}
+
+body.theme-heresy .avatar{
+  border:2px solid rgba(212,160,32,0.3);
+  box-shadow:
+    0 0 30px rgba(212,160,32,0.1),
+    0 0 60px rgba(0,0,0,0.5);
+}
+
+body.theme-heresy .prof-status,
+body.theme-heresy .prof-tags,
+body.theme-heresy .prof-text,
+body.theme-heresy .conection,
+body.theme-heresy .illust{
+  background:linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid rgba(212,160,32,0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(212,160,32,0.03),
+    0 4px 20px rgba(0,0,0,0.4);
+}
+
+body.theme-heresy .profile section h3,
+body.theme-heresy .illust h3,
+body.theme-heresy .prof-status h3,
+body.theme-heresy .prof-tags h3,
+body.theme-heresy .conection h3{
+  color:#d4a020;
+  border-bottom-color:rgba(212,160,32,0.2);
+  font-family:"Times New Roman","Noto Serif JP",serif;
+  font-weight:400;
+  font-style:italic;
+}
+
+body.theme-heresy .serif p{
+  font-family:"Times New Roman","Noto Serif JP",serif;
+}
+
+body.theme-heresy .prof-status li{border-bottom-color:rgba(212,160,32,0.08)}
+body.theme-heresy .prof-status li b{color:#8a8890}
+
+body.theme-heresy .tag{
+  border-color:rgba(212,160,32,0.15);
+  color:#8a8890;
+}
+
+body.theme-heresy .tag:hover{
+  border-color:rgba(212,160,32,0.5);
+  color:#d4a020;
+  background:rgba(212,160,32,0.08);
+}
+
+body.theme-heresy footer{
+  border-top-color:rgba(212,160,32,0.1);
+  color:#8a8890;
+  font-style:italic;
+}
+
+/* 逆十字と魔法陣 */
+body.theme-heresy::before{
+  content:'';
+  position:fixed;
+  top:50%;left:50%;
+  width:400px;height:400px;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  opacity:0.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23d4a020' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='35' fill='none' stroke='%23d4a020' stroke-width='0.3'/%3E%3Cpath d='M50 10 L50 90 M30 30 L70 30' stroke='%23d4a020' stroke-width='0.5' fill='none'/%3E%3Cpolygon points='50,15 85,75 15,75' fill='none' stroke='%23d4a020' stroke-width='0.3'/%3E%3Cpolygon points='50,85 15,25 85,25' fill='none' stroke='%23d4a020' stroke-width='0.3'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  z-index:-1;
+}
+
+body.theme-heresy::-webkit-scrollbar-thumb{background:rgba(212,160,32,0.3)}
+body.theme-heresy::-webkit-scrollbar-thumb:hover{background:rgba(212,160,32,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: コズミックホラー (Cosmic) - カーター用
+   クトゥルフ・オレンジと水色・宇宙的恐怖
+   ═══════════════════════════════════════════════════════════ */
+body.theme-cosmic{
+  --bg:#08080c;
+  --bg-deep:#040408;
+  --surface:#0c0e14;
+  --surface-2:#10121a;
+  --muted:#6a8090;
+  --text:#d0dce8;
+  --text-bright:#f0f8ff;
+  --accent:#ff8040;
+  --accent-strong:#ff9050;
+  --accent-glow:rgba(255,128,64,0.2);
+  --border:rgba(100,180,200,0.15);
+  --border-accent:rgba(255,128,64,0.35);
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(100,180,200,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,128,64,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(80,40,100,0.1) 0%, transparent 50%),
+    var(--bg);
+}
+
+body.theme-cosmic .site-header{
+  border-bottom-color:rgba(100,180,200,0.2);
+}
+
+body.theme-cosmic .site-header h1 a,
+body.theme-cosmic .brand a{
+  color:#60c0d0;
+  text-shadow:0 0 10px rgba(100,180,200,0.5);
+}
+
+body.theme-cosmic .top-nav a{color:#6a8090}
+body.theme-cosmic .top-nav a:hover{color:#ff8040}
+
+body.theme-cosmic .prof-head h2{
+  background:linear-gradient(135deg, #ff8040, #60c0d0, #ff8040);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:cosmic-shift 6s ease infinite;
+}
+
+@keyframes cosmic-shift{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
+body.theme-cosmic .prof-head span{
+  color:#60c0d0;
+}
+
+body.theme-cosmic .avatar{
+  border:1px solid rgba(100,180,200,0.3);
+  box-shadow:
+    0 0 30px rgba(100,180,200,0.15),
+    0 0 60px rgba(255,128,64,0.1);
+}
+
+body.theme-cosmic .prof-status,
+body.theme-cosmic .prof-tags,
+body.theme-cosmic .prof-text,
+body.theme-cosmic .conection,
+body.theme-cosmic .illust{
+  background:linear-gradient(135deg, rgba(12,14,20,0.95), rgba(16,18,26,0.95));
+  border:1px solid rgba(100,180,200,0.1);
+  box-shadow:0 4px 24px rgba(0,0,0,0.4);
+}
+
+body.theme-cosmic .profile section h3,
+body.theme-cosmic .illust h3,
+body.theme-cosmic .prof-status h3,
+body.theme-cosmic .prof-tags h3,
+body.theme-cosmic .conection h3{
+  color:#ff8040;
+  border-bottom-color:rgba(255,128,64,0.2);
+  text-shadow:0 0 8px rgba(255,128,64,0.3);
+}
+
+body.theme-cosmic .prof-status li{border-bottom-color:rgba(100,180,200,0.08)}
+body.theme-cosmic .prof-status li b{color:#6a8090}
+
+body.theme-cosmic .tag{
+  border-color:rgba(100,180,200,0.2);
+  color:#6a8090;
+}
+
+body.theme-cosmic .tag:hover{
+  border-color:rgba(255,128,64,0.5);
+  color:#ff8040;
+  background:rgba(255,128,64,0.08);
+}
+
+body.theme-cosmic footer{
+  border-top-color:rgba(100,180,200,0.12);
+  color:#6a8090;
+}
+
+/* 触手と渦巻き */
+body.theme-cosmic::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(ellipse at 15% 85%, rgba(100,180,200,0.08) 0%, transparent 30%),
+    radial-gradient(ellipse at 85% 15%, rgba(255,128,64,0.06) 0%, transparent 25%),
+    radial-gradient(ellipse at 50% 50%, rgba(80,40,100,0.04) 0%, transparent 40%);
+  z-index:-1;
+  animation:cosmic-pulse 10s ease-in-out infinite;
+}
+
+@keyframes cosmic-pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.8;transform:scale(1.05)}
+}
+
+body.theme-cosmic::after{
+  content:'';
+  position:fixed;
+  top:50%;left:50%;
+  width:600px;height:600px;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  opacity:0.015;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100,20 Q140,60 120,100 T100,180 Q60,140 80,100 T100,20' fill='none' stroke='%2360c0d0' stroke-width='0.5'/%3E%3Cpath d='M20,100 Q60,140 100,120 T180,100 Q140,60 100,80 T20,100' fill='none' stroke='%23ff8040' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='%2360c0d0' stroke-width='0.3'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  z-index:-1;
+  animation:cosmic-rotate 60s linear infinite;
+}
+
+@keyframes cosmic-rotate{
+  0%{transform:translate(-50%,-50%) rotate(0deg)}
+  100%{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+body.theme-cosmic::-webkit-scrollbar-thumb{background:rgba(100,180,200,0.3)}
+body.theme-cosmic::-webkit-scrollbar-thumb:hover{background:rgba(255,128,64,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: 機械 (Machine) - ジャック用
+   演算機械・黒と緑・デジタル・マトリックス風
+   ═══════════════════════════════════════════════════════════ */
+body.theme-machine{
+  --bg:#050808;
+  --bg-deep:#020404;
+  --surface:#0a100a;
+  --surface-2:#0e150e;
+  --muted:#508050;
+  --text:#c0e0c0;
+  --text-bright:#e0ffe0;
+  --accent:#00ff00;
+  --accent-strong:#40ff40;
+  --accent-glow:rgba(0,255,0,0.2);
+  --border:rgba(0,255,0,0.1);
+  --border-accent:rgba(0,255,0,0.35);
+  background:
+    linear-gradient(180deg, #020404 0%, #050808 50%, #081008 100%);
+}
+
+body.theme-machine .site-header{
+  border-bottom-color:rgba(0,255,0,0.2);
+}
+
+body.theme-machine .site-header h1 a,
+body.theme-machine .brand a{
+  color:#00ff00;
+  text-shadow:0 0 10px rgba(0,255,0,0.6);
+  font-family:"Courier New",monospace;
+  letter-spacing:0.15em;
+}
+
+body.theme-machine .top-nav a{color:#508050;font-family:"Courier New",monospace}
+body.theme-machine .top-nav a:hover{color:#00ff00;text-shadow:0 0 5px rgba(0,255,0,0.5)}
+
+body.theme-machine .prof-head h2{
+  color:#00ff00;
+  text-shadow:
+    0 0 10px rgba(0,255,0,0.8),
+    0 0 20px rgba(0,255,0,0.4);
+  font-family:"Courier New",monospace;
+  letter-spacing:0.1em;
+}
+
+body.theme-machine .prof-head span{
+  color:#508050;
+  font-family:"Courier New",monospace;
+}
+
+body.theme-machine .avatar{
+  border:1px solid rgba(0,255,0,0.3);
+  box-shadow:
+    0 0 20px rgba(0,255,0,0.1),
+    inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+body.theme-machine .prof-status,
+body.theme-machine .prof-tags,
+body.theme-machine .prof-text,
+body.theme-machine .conection,
+body.theme-machine .illust{
+  background:linear-gradient(180deg, rgba(10,16,10,0.95), rgba(14,21,14,0.95));
+  border:1px solid rgba(0,255,0,0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(0,255,0,0.03),
+    0 4px 20px rgba(0,0,0,0.5);
+}
+
+body.theme-machine .profile section h3,
+body.theme-machine .illust h3,
+body.theme-machine .prof-status h3,
+body.theme-machine .prof-tags h3,
+body.theme-machine .conection h3{
+  color:#00ff00;
+  border-bottom-color:rgba(0,255,0,0.2);
+  font-family:"Courier New",monospace;
+  text-shadow:0 0 5px rgba(0,255,0,0.4);
+}
+
+body.theme-machine .serif p{
+  font-family:"Courier New",monospace;
+  color:#c0e0c0;
+}
+
+body.theme-machine .prof-status li{border-bottom-color:rgba(0,255,0,0.08)}
+body.theme-machine .prof-status li b{color:#508050;font-family:"Courier New",monospace}
+body.theme-machine .prof-status li span{font-family:"Courier New",monospace}
+
+body.theme-machine .tag{
+  border-color:rgba(0,255,0,0.15);
+  color:#508050;
+  font-family:"Courier New",monospace;
+}
+
+body.theme-machine .tag:hover{
+  border-color:#00ff00;
+  color:#00ff00;
+  background:rgba(0,255,0,0.08);
+  box-shadow:0 0 8px rgba(0,255,0,0.3);
+}
+
+body.theme-machine footer{
+  border-top-color:rgba(0,255,0,0.1);
+  color:#508050;
+  font-family:"Courier New",monospace;
+}
+
+/* マトリックス風デジタルグリッド */
+body.theme-machine::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(0,255,0,0.02) 25%, rgba(0,255,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,255,0,0.02) 75%, rgba(0,255,0,0.02) 76%, transparent 77%),
+    linear-gradient(90deg, transparent 24%, rgba(0,255,0,0.02) 25%, rgba(0,255,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,255,0,0.02) 75%, rgba(0,255,0,0.02) 76%, transparent 77%);
+  background-size:40px 40px;
+  z-index:-1;
+}
+
+/* スキャンライン効果 */
+body.theme-machine::after{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background:linear-gradient(
+    0deg,
+    transparent 50%,
+    rgba(0,0,0,0.1) 50%
+  );
+  background-size:100% 4px;
+  z-index:9999;
+  opacity:0.15;
+}
+
+body.theme-machine::-webkit-scrollbar-thumb{background:rgba(0,255,0,0.3)}
+body.theme-machine::-webkit-scrollbar-thumb:hover{background:rgba(0,255,0,0.5)}
