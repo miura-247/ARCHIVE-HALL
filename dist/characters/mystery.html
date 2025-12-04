@@ -10,7 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="theme-cyberdata">
+
+<!-- 合言葉入力画面 -->
+<div class="password-gate" id="passwordGate">
+  <h2>ACCESS REQUIRED</h2>
+  <p>認証コードを入力してください</p>
+  <input type="text" id="passwordInput" placeholder="ENTER PASSWORD" autocomplete="off">
+  <p class="error" id="errorMsg">認証失敗：コードが正しくありません</p>
+  <p class="hint">HINT: プログラマーの最初の言葉</p>
+</div>
+
+<!-- メインコンテンツ（ロック状態） -->
+<div class="main-content-locked" id="mainContent">
 
 <header class="site-header">
   <h1><a href="../index.html">Archive v3</a></h1>
@@ -19,32 +31,40 @@
 
 <main class="profile">
   <section class="prof-head">
-    <span class="epithet"></span>
-    <h2>？？？？</h2>
+    <span class="epithet">DATA_ENTITY</span>
+    <h2>クラリス</h2>
   </section>
 
-  <section class="prof-illust">
-    <div class="avatar"></div>
-  </section>
+  <div class="prof-main">
+    <section class="prof-illust">
+      <div class="avatar"></div>
+    </section>
 
-  <section class="prof-status">
-    <h3>STATUS</h3>
-    <ul>
-      <li><b>HEIGHT：</b><span></span></li>
-      <li><b>SEX：</b><span></span></li>
-      <li><b>LIKE：</b><span></span></li>
-      <li><b>HATE：</b><span></span></li>
-    </ul>
-  </section>
+    <div class="prof-side">
+      <section class="prof-status">
+        <h3>STATUS</h3>
+        <ul>
+          <li><b>HEIGHT：</b><span>undefined</span></li>
+          <li><b>SEX：</b><span>null</span></li>
+          <li><b>LIKE：</b><span></span></li>
+          <li><b>HATE：</b><span></span></li>
+        </ul>
+      </section>
 
-  <section class="prof-tags">
-    <h3>TAGS</h3>
-    <div class="tags"><span class="tag">その他</span></div>
-  </section>
+      <section class="prof-tags">
+        <h3>TAGS</h3>
+        <div class="tags"><span class="tag">その他</span><span class="tag">DATA</span></div>
+      </section>
+    </div>
+  </div>
 
   <section class="prof-text">
     <h3>OVERVIEW</h3>
-    <div class="serif"></div>
+    <div class="serif">
+      <p>// LOADING DATA...</p>
+      <p>// ENTITY: CLARISSE</p>
+      <p>// STATUS: ACTIVE</p>
+    </div>
   </section>
 
   <section class="conection">
@@ -62,6 +82,46 @@
 </main>
 
 <footer><small>Generated</small></footer>
+
+</div>
+
+<script>
+(function(){
+  const PASSWORD = 'HELLO WORLD';
+  const gate = document.getElementById('passwordGate');
+  const content = document.getElementById('mainContent');
+  const input = document.getElementById('passwordInput');
+  const error = document.getElementById('errorMsg');
+  
+  // ローカルストレージで認証状態を保持
+  if(localStorage.getItem('clarisse_unlocked') === 'true'){
+    gate.classList.add('hidden');
+    content.classList.add('unlocked');
+  }
+  
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      const val = input.value.trim().toUpperCase();
+      if(val === PASSWORD){
+        localStorage.setItem('clarisse_unlocked', 'true');
+        gate.style.opacity = '0';
+        gate.style.transition = 'opacity 0.5s ease';
+        setTimeout(function(){
+          gate.classList.add('hidden');
+          content.classList.add('unlocked');
+        }, 500);
+      } else {
+        error.classList.add('show');
+        input.style.borderColor = '#ff4060';
+        setTimeout(function(){
+          error.classList.remove('show');
+          input.style.borderColor = '';
+        }, 2000);
+      }
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
