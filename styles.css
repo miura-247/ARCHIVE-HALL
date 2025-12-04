@@ -2263,3 +2263,233 @@ body.theme-machine::after{
 
 body.theme-machine::-webkit-scrollbar-thumb{background:rgba(0,255,0,0.3)}
 body.theme-machine::-webkit-scrollbar-thumb:hover{background:rgba(0,255,0,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   テーマ: サイバーデータ (Cyberdata) - クラリス用
+   ピンク＆白・データ上のキャラクター・サイバー
+   ═══════════════════════════════════════════════════════════ */
+body.theme-cyberdata{
+  --bg:#0a0810;
+  --bg-deep:#050408;
+  --surface:#100c18;
+  --surface-2:#141020;
+  --muted:#a080b0;
+  --text:#f0e8f8;
+  --text-bright:#ffffff;
+  --accent:#ff80c0;
+  --accent-strong:#ffa0d0;
+  --accent-glow:rgba(255,128,192,0.25);
+  --border:rgba(255,255,255,0.1);
+  --border-accent:rgba(255,128,192,0.4);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,128,192,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.04) 0%, transparent 40%),
+    linear-gradient(180deg, #050408 0%, #0a0810 50%, #100c18 100%);
+}
+
+body.theme-cyberdata .site-header{
+  border-bottom-color:rgba(255,128,192,0.2);
+}
+
+body.theme-cyberdata .site-header h1 a,
+body.theme-cyberdata .brand a{
+  color:#ff80c0;
+  text-shadow:0 0 10px rgba(255,128,192,0.5);
+  font-family:"Courier New",monospace;
+}
+
+body.theme-cyberdata .top-nav a{color:#a080b0;font-family:"Courier New",monospace}
+body.theme-cyberdata .top-nav a:hover{color:#ff80c0;text-shadow:0 0 5px rgba(255,128,192,0.5)}
+
+body.theme-cyberdata .prof-head h2{
+  color:#ffffff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(255,128,192,0.5),
+    0 0 40px rgba(255,128,192,0.3);
+  font-family:"Courier New",monospace;
+  letter-spacing:0.15em;
+}
+
+body.theme-cyberdata .prof-head span{
+  color:#ff80c0;
+  font-family:"Courier New",monospace;
+}
+
+body.theme-cyberdata .avatar{
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:
+    0 0 20px rgba(255,128,192,0.15),
+    0 0 40px rgba(255,255,255,0.05),
+    inset 0 0 30px rgba(0,0,0,0.3);
+}
+
+body.theme-cyberdata .prof-status,
+body.theme-cyberdata .prof-tags,
+body.theme-cyberdata .prof-text,
+body.theme-cyberdata .conection,
+body.theme-cyberdata .illust{
+  background:linear-gradient(135deg, rgba(16,12,24,0.95), rgba(20,16,32,0.95));
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 0 20px rgba(255,128,192,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+body.theme-cyberdata .profile section h3,
+body.theme-cyberdata .illust h3,
+body.theme-cyberdata .prof-status h3,
+body.theme-cyberdata .prof-tags h3,
+body.theme-cyberdata .conection h3{
+  color:#ff80c0;
+  border-bottom-color:rgba(255,128,192,0.2);
+  font-family:"Courier New",monospace;
+  text-shadow:0 0 5px rgba(255,128,192,0.4);
+}
+
+body.theme-cyberdata .serif p{
+  font-family:"Courier New",monospace;
+  color:#f0e8f8;
+}
+
+body.theme-cyberdata .prof-status li{border-bottom-color:rgba(255,255,255,0.06)}
+body.theme-cyberdata .prof-status li b{color:#a080b0;font-family:"Courier New",monospace}
+body.theme-cyberdata .prof-status li span{font-family:"Courier New",monospace}
+
+body.theme-cyberdata .tag{
+  border-color:rgba(255,128,192,0.2);
+  color:#a080b0;
+  font-family:"Courier New",monospace;
+}
+
+body.theme-cyberdata .tag:hover{
+  border-color:#ff80c0;
+  color:#ff80c0;
+  background:rgba(255,128,192,0.1);
+  box-shadow:0 0 8px rgba(255,128,192,0.3);
+}
+
+body.theme-cyberdata footer{
+  border-top-color:rgba(255,255,255,0.08);
+  color:#a080b0;
+  font-family:"Courier New",monospace;
+}
+
+/* デジタルノイズ風グリッド */
+body.theme-cyberdata::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(255,128,192,0.015) 25%, rgba(255,128,192,0.015) 26%, transparent 27%, transparent 74%, rgba(255,128,192,0.015) 75%, rgba(255,128,192,0.015) 76%, transparent 77%),
+    linear-gradient(90deg, transparent 24%, rgba(255,255,255,0.01) 25%, rgba(255,255,255,0.01) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.01) 75%, rgba(255,255,255,0.01) 76%, transparent 77%);
+  background-size:50px 50px;
+  z-index:-1;
+}
+
+/* データストリーム風エフェクト */
+body.theme-cyberdata::after{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(255,128,192,0.02) 50%, transparent 100%);
+  background-size:200% 100%;
+  animation:cyberdata-stream 3s ease-in-out infinite;
+  z-index:-1;
+}
+
+@keyframes cyberdata-stream{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+
+body.theme-cyberdata::-webkit-scrollbar-thumb{background:rgba(255,128,192,0.3)}
+body.theme-cyberdata::-webkit-scrollbar-thumb:hover{background:rgba(255,128,192,0.5)}
+
+/* ═══════════════════════════════════════════════════════════
+   合言葉入力画面 (Password Gate)
+   ═══════════════════════════════════════════════════════════ */
+.password-gate{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(135deg, #050408 0%, #0a0810 50%, #100c18 100%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+  font-family:"Courier New",monospace;
+}
+
+.password-gate.hidden{
+  display:none;
+}
+
+.password-gate h2{
+  color:#ff80c0;
+  font-size:1.2rem;
+  letter-spacing:0.2em;
+  margin-bottom:24px;
+  text-shadow:0 0 10px rgba(255,128,192,0.5);
+}
+
+.password-gate p{
+  color:#a080b0;
+  font-size:0.85rem;
+  margin-bottom:32px;
+}
+
+.password-gate input{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,128,192,0.3);
+  padding:12px 20px;
+  font-size:1rem;
+  color:#ffffff;
+  font-family:"Courier New",monospace;
+  letter-spacing:0.1em;
+  text-align:center;
+  width:280px;
+  border-radius:4px;
+  outline:none;
+  transition:all 0.3s ease;
+}
+
+.password-gate input:focus{
+  border-color:#ff80c0;
+  box-shadow:0 0 15px rgba(255,128,192,0.3);
+}
+
+.password-gate input::placeholder{
+  color:#a080b0;
+}
+
+.password-gate .error{
+  color:#ff4060;
+  font-size:0.8rem;
+  margin-top:16px;
+  opacity:0;
+  transition:opacity 0.3s ease;
+}
+
+.password-gate .error.show{
+  opacity:1;
+}
+
+.password-gate .hint{
+  color:#606080;
+  font-size:0.75rem;
+  margin-top:40px;
+  text-align:center;
+  line-height:1.8;
+}
+
+.main-content-locked{
+  display:none;
+}
+
+.main-content-locked.unlocked{
+  display:block;
+}

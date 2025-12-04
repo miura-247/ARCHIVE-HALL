@@ -1,8 +1,10 @@
 {
   "id": "mystery",
   "name": "？？？？",
+  "full_name": "クラリス",
   "category": "その他",
   "tags": [
     "その他"
-  ]
+  ],
+  "theme": "cyberdata"
 }
