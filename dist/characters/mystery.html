@@ -15,10 +15,10 @@
 <!-- 合言葉入力画面 -->
 <div class="password-gate" id="passwordGate">
   <h2>ACCESS REQUIRED</h2>
-  <p>認証コードを入力してください</p>
+  <p>PLEASE ENTER THE PASSWORD</p>
   <input type="text" id="passwordInput" placeholder="ENTER PASSWORD" autocomplete="off">
-  <p class="error" id="errorMsg">認証失敗：コードが正しくありません</p>
-  <p class="hint">HINT: プログラマーの最初の言葉</p>
+  <p class="error" id="errorMsg">AUTHENTICATION FAILED: INCORRECT CODE</p>
+  <p class="hint">HINT: WILL YOU SAY HELLO TO ME?</p>
 </div>
 
 <!-- メインコンテンツ（ロック状態） -->
@@ -93,18 +93,14 @@
   const input = document.getElementById('passwordInput');
   const error = document.getElementById('errorMsg');
   
-  // セッションストレージで認証状態を保持（タブ/ブラウザを閉じるとリセットされる）
-  if(sessionStorage.getItem('clarisse_unlocked') === 'true'){
-    gate.classList.add('hidden');
-    content.classList.add('unlocked');
-  }
+  // 合言葉は保存しない（毎回要求する）
+  // 以前は sessionStorage に保存していたが、現在は常に入力を求める仕様にする。
   
   input.addEventListener('keydown', function(e){
     if(e.key === 'Enter'){
       const val = input.value.trim().toUpperCase();
       if(val === PASSWORD){
-        // セッション限定で保持
-        sessionStorage.setItem('clarisse_unlocked', 'true');
+        // 認証成功時はその場でゲートを閉じるが、状態は保存しない
         gate.style.opacity = '0';
         gate.style.transition = 'opacity 0.5s ease';
         setTimeout(function(){
